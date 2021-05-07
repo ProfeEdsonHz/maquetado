@@ -4,9 +4,10 @@ html {
 }
 
 body {
-	background-color: #999999;
+	background-color: black;
 	/*no permite reducir la altura del body*/
 	min-height: 100%;
+	width: 
 }
 
 .grid-container {
@@ -23,7 +24,7 @@ body {
 	grid-template:
 		"nav-area 		nav-area" 6rem
 		"header-area 	header-area" 13rem
-		"section-area 	aside-area" 18rem
+		"section-area 	aside-area" auto
 		"footer-area 	footer-area" 10rem /
 		70% 			30%
 	;
@@ -33,6 +34,17 @@ body {
 	display: grid;
 	grid-template-columns: repeat(4, auto);
 	grid-template-rows: auto auto;
+}
+
+.grid-section {
+	display: grid;
+	grid-template-columns:auto auto;
+	grid-template-rows:auto auto;
+}
+
+section h1 {
+	grid-column-start: 1;
+	grid-column-end: 3;
 }
 
 nav {
@@ -75,7 +87,7 @@ footer {
 
 
 .img1 {
-
+	
 }
 
 .img2 {
@@ -93,4 +105,77 @@ footer {
 .img4 {
 	grid-column-start: 1;
 	grid-column-end: 3;
+}
+
+/*************************************
+CAMBIOS DE CONFIGURACIÓN PARA TELÉFONO
+*************************************/
+
+@media (max-width: 425px) {
+	nav {
+		opacity: 20%;
+	}
+
+	.grid-container {
+		grid-template:
+			"nav-area 		" 6rem
+			"header-area 	" 13rem
+			"section-area 	" auto
+			"aside-area		" 4rem
+			"footer-area 	" 10rem /
+			90% 			
+		;
+	}
+
+	.grid-gallery {
+		grid-template-columns: auto;
+		grid-template-rows: repeat(5, 3rem);
+	}
+
+	.img2 {
+		grid-column-start: 1;
+		grid-column-end: 2;
+	}
+
+	.img3 {
+		grid-row-start: 3;
+		grid-row-end: 4;
+		grid-column-start: 1;
+		grid-column-end: 2;
+	}
+
+	.img4 {
+		grid-column-start: 1;
+		grid-column-end: 2;
+	}
+
+
+	.grid-section {
+		grid-template-columns:auto;
+	}
+
+	section h1 {
+		grid-column-start: 1;
+		grid-column-end: 2;
+	}
+}
+
+
+/*************************************
+CAMBIOS DE CONFIGURACIÓN PARA TABLET
+*************************************/
+@media (max-width: 768px) {
+
+	.grid-container {
+		grid-template:
+			"nav-area 		" 6rem
+			"header-area 	" 13rem
+			"section-area 	" auto
+			"aside-area		" 4rem
+			"footer-area 	" 10rem /
+			90% 			
+		;
+		justify-content: center;
+	}	
+
 }
